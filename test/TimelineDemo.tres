@@ -1,0 +1,135 @@
+[gd_resource type="Resource" script_class="TimelineAsset" format=3 uid="uid://dwda8jo116y5d"]
+
+[ext_resource type="Script" uid="uid://2e8uin7gr4ur" path="res://addons/timeline/core/timeline_asset.gd" id="1_asset"]
+[ext_resource type="Script" uid="uid://b3bgu4gh7gj52" path="res://addons/timeline/core/timeline_marker.gd" id="1_sk6j6"]
+[ext_resource type="Script" uid="uid://bf4nwkt3bm20q" path="res://addons/timeline/core/timeline_track.gd" id="2_track"]
+[ext_resource type="Script" uid="uid://co67cywpd4lt7" path="res://addons/timeline/core/timeline_clip.gd" id="3_clip"]
+[ext_resource type="Script" uid="uid://dkhxur4pts5d3" path="res://#Template/[Scripts]/TimeLineExpand/Fog/FogTrack.gd" id="4_fogtrack"]
+[ext_resource type="Script" uid="uid://b8cjqw6hqaegh" path="res://#Template/[Scripts]/TimeLineExpand/Fog/FogClip.gd" id="5_fogclip"]
+[ext_resource type="Script" uid="uid://c0rlkemrgwtvo" path="res://#Template/[Scripts]/TimeLineExpand/Fog/FogBehaviour.gd" id="6_fogbeh"]
+[ext_resource type="Script" uid="uid://drjfu3hs4vmv3" path="res://#Template/[Scripts]/TimeLineExpand/Environment/EnvironmentTrack.gd" id="7_envtrack"]
+[ext_resource type="Script" uid="uid://cbgaapn3clkbk" path="res://#Template/[Scripts]/TimeLineExpand/Environment/EnvironmentClip.gd" id="8_envclip"]
+[ext_resource type="Script" uid="uid://bfaqt7lf3kxps" path="res://#Template/[Scripts]/TimeLineExpand/Environment/EnvironmentBehaviour.gd" id="9_envbeh"]
+[ext_resource type="Script" uid="uid://2ne0v53x4ky6" path="res://#Template/[Scripts]/TimeLineExpand/PostProcess/Bloom/BloomTrack.gd" id="10_bloomtrack"]
+[ext_resource type="Script" uid="uid://12wm3in4wi6b" path="res://#Template/[Scripts]/TimeLineExpand/PostProcess/Bloom/BloomClip.gd" id="11_bloomclip"]
+[ext_resource type="Script" uid="uid://bc4a1w8uqarff" path="res://#Template/[Scripts]/TimeLineExpand/PostProcess/Bloom/BloomBehaviour.gd" id="12_bloombeh"]
+[ext_resource type="Script" uid="uid://dvg55jggrfc35" path="res://addons/timeline/tracks/transform_track.gd" id="13_transform"]
+[ext_resource type="Script" uid="uid://behwa4cdlohgq" path="res://addons/timeline/tracks/transform_behaviour.gd" id="14_transformbeh"]
+[ext_resource type="Script" uid="uid://djwx7cx1mqqph" path="res://addons/timeline/tracks/transform_clip.gd" id="15_transformclip"]
+
+[sub_resource type="Resource" id="Resource_sk6j6"]
+script = ExtResource("1_sk6j6")
+marker_name = "Marker 1"
+
+[sub_resource type="Resource" id="Resource_fogbeh"]
+script = ExtResource("6_fogbeh")
+TargetFogColor = Color(0.95, 0.75, 0.55, 1)
+FogStartDistance = 2.0
+FogEndDistance = 30.0
+FogDensity = 0.02
+
+[sub_resource type="Resource" id="Resource_fogclip"]
+script = ExtResource("5_fogclip")
+clip_name = "Fog Clip"
+duration = 6.0
+blend_in = 1.0
+blend_out = 1.0
+template = SubResource("Resource_fogbeh")
+
+[sub_resource type="Resource" id="Resource_fogtrack"]
+script = ExtResource("4_fogtrack")
+track_name = "Fog"
+track_color = Color(0.984, 0.855, 0.725, 1)
+enabled = false
+bound_path = NodePath("../WorldEnvironment")
+clips = Array[ExtResource("3_clip")]([SubResource("Resource_fogclip")])
+track_offset_position = null
+track_offset_rotation = null
+track_offset_scale = null
+match_offset_start = null
+match_offset_end = null
+
+[sub_resource type="Resource" id="Resource_envbeh"]
+script = ExtResource("9_envbeh")
+Ambient_Color = Color(0.25, 0.45, 0.85, 1)
+Sky_HDR = Color(0.2, 0.6, 1, 1)
+Equator_HDR = Color(0.6, 0.7, 0.9, 1)
+Ground_HDR = Color(0.1, 0.12, 0.16, 1)
+
+[sub_resource type="Resource" id="Resource_envclip"]
+script = ExtResource("8_envclip")
+clip_name = "Ambient Clip"
+start = 1.0
+duration = 5.0
+blend_in = 0.8
+blend_out = 0.8
+template = SubResource("Resource_envbeh")
+
+[sub_resource type="Resource" id="Resource_envtrack"]
+script = ExtResource("7_envtrack")
+track_name = "Environment"
+track_color = Color(0.4, 0.7, 0.9, 1)
+enabled = false
+bound_path = NodePath("../WorldEnvironment")
+clips = Array[ExtResource("3_clip")]([SubResource("Resource_envclip")])
+track_offset_position = null
+track_offset_rotation = null
+track_offset_scale = null
+match_offset_start = null
+match_offset_end = null
+
+[sub_resource type="Resource" id="Resource_bloombeh"]
+script = ExtResource("12_bloombeh")
+intensity = 0.8
+
+[sub_resource type="Resource" id="Resource_bloomclip"]
+script = ExtResource("11_bloomclip")
+clip_name = "Bloom Clip"
+start = 2.0
+duration = 4.0
+blend_in = 0.8
+blend_out = 0.8
+template = SubResource("Resource_bloombeh")
+
+[sub_resource type="Resource" id="Resource_bloomtrack"]
+script = ExtResource("10_bloomtrack")
+track_name = "Bloom"
+track_color = Color(0.9, 0.9, 0.3, 1)
+enabled = false
+bound_path = NodePath("../DemoCamera")
+clips = Array[ExtResource("3_clip")]([SubResource("Resource_bloomclip")])
+track_offset_position = null
+track_offset_rotation = null
+track_offset_scale = null
+match_offset_start = null
+match_offset_end = null
+
+[sub_resource type="Resource" id="Resource_transformbeh"]
+script = ExtResource("14_transformbeh")
+start_pos = Vector3(-2, 1, -4)
+end_pos = Vector3(2, 1, -4)
+end_rot = Vector3(0, 360, 0)
+end_scale = Vector3(1.5, 1.5, 1.5)
+ease_type = 1
+
+[sub_resource type="Resource" id="Resource_transformclip"]
+script = ExtResource("15_transformclip")
+clip_name = "Transform Clip"
+start = 1.4833333333333334
+duration = 6.0
+blend_in = 0.5
+blend_out = 0.5
+template = SubResource("Resource_transformbeh")
+
+[sub_resource type="Resource" id="Resource_transformtrack"]
+script = ExtResource("13_transform")
+track_name = "Transform"
+track_color = Color(0.3, 0.6, 0.9, 1)
+bound_path = NodePath("../DemoCube")
+clips = Array[ExtResource("3_clip")]([SubResource("Resource_transformclip")])
+
+[resource]
+script = ExtResource("1_asset")
+asset_name = "Timeline Demo"
+tracks = Array[ExtResource("2_track")]([SubResource("Resource_fogtrack"), SubResource("Resource_envtrack"), SubResource("Resource_bloomtrack"), SubResource("Resource_transformtrack")])
+markers = Array[ExtResource("1_sk6j6")]([SubResource("Resource_sk6j6")])

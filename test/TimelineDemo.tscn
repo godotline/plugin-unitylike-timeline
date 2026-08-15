@@ -1,0 +1,54 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://addons/timeline/core/timeline_director.gd" id="1_director"]
+[ext_resource type="Resource" path="res://addons/timeline/test/TimelineDemo.tres" id="2_timeline"]
+
+[sub_resource type="Environment" id="Environment_demo"]
+background_mode = 1
+background_color = Color(0.15, 0.2, 0.3, 1)
+fog_enabled = true
+fog_mode = 1
+fog_depth_begin = 5.0
+fog_depth_end = 60.0
+fog_light_color = Color(0.6, 0.7, 0.85, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.3, 0.35, 0.45, 1)
+ambient_light_energy = 0.8
+glow_enabled = false
+glow_intensity = 0.3
+glow_hdr_threshold = 1.0
+glow_bloom = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_demo"]
+albedo_color = Color(0.8, 0.3, 0.2, 1)
+emission_enabled = true
+emission = Color(0.8, 0.2, 0.1, 1)
+emission_energy_multiplier = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_demo"]
+size = Vector3(1, 1, 1)
+
+[node name="TimelineDemo" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_demo")
+
+[node name="DemoCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 6)
+current = true
+environment = SubResource("Environment_demo")
+
+[node name="DemoCube" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -4)
+mesh = SubResource("BoxMesh_demo")
+surface_material_override/0 = SubResource("StandardMaterial3D_demo")
+
+[node name="DemoLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.707107, -0.707107, 0, 0, 0, -1, -0.707107, 0.707107, 0, 0, 4, 0)
+light_energy = 1.2
+shadow_enabled = true
+
+[node name="TimelineDirector" type="Node" parent="."]
+script = ExtResource("1_director")
+timeline = ExtResource("2_timeline")
+autoplay = true

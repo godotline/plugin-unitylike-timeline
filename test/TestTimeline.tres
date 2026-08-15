@@ -1,0 +1,72 @@
+[gd_resource type="Resource" script_class="TimelineAsset" format=3]
+
+[ext_resource type="Script" path="res://addons/timeline/core/timeline_asset.gd" id="1_asset"]
+[ext_resource type="Script" path="res://addons/timeline/core/timeline_track.gd" id="2_track"]
+[ext_resource type="Script" path="res://addons/timeline/core/timeline_clip.gd" id="3_clip"]
+[ext_resource type="Script" path="res://#Template/[Scripts]/TimeLineExpand/Fog/FogTrack.gd" id="4_fogtrack"]
+[ext_resource type="Script" path="res://#Template/[Scripts]/TimeLineExpand/Fog/FogClip.gd" id="5_fogclip"]
+[ext_resource type="Script" path="res://#Template/[Scripts]/TimeLineExpand/Fog/FogBehaviour.gd" id="6_fogbeh"]
+[ext_resource type="Script" path="res://#Template/[Scripts]/TimeLineExpand/Environment/EnvironmentTrack.gd" id="7_envtrack"]
+[ext_resource type="Script" path="res://#Template/[Scripts]/TimeLineExpand/Environment/EnvironmentClip.gd" id="8_envclip"]
+[ext_resource type="Script" path="res://#Template/[Scripts]/TimeLineExpand/Environment/EnvironmentBehaviour.gd" id="9_envbeh"]
+
+[sub_resource type="Resource" id="Resource_fogbeh"]
+script = ExtResource("6_fogbeh")
+TargetFogMode = 0
+TargetFogColor = Color(1, 1, 1, 1)
+FogStartDistance = 10.0
+FogEndDistance = 100.0
+FogDensity = 0.01
+
+[sub_resource type="Resource" id="Resource_fogclip"]
+script = ExtResource("5_fogclip")
+clip_name = "Fog Clip"
+start = 0.0
+duration = 5.0
+blend_in = 0.5
+blend_out = 0.5
+enabled = true
+template = SubResource("Resource_fogbeh")
+
+[sub_resource type="Resource" id="Resource_fogtrack"]
+script = ExtResource("4_fogtrack")
+track_name = "Fog"
+track_color = Color(0.984, 0.855, 0.725, 1)
+enabled = true
+muted = false
+bound_path = NodePath("")
+clips = Array[ExtResource("3_clip")]([SubResource("Resource_fogclip")])
+
+[sub_resource type="Resource" id="Resource_envbeh"]
+script = ExtResource("9_envbeh")
+mode = 0
+Ambient_Color = Color(0.2, 0.4, 0.8, 1)
+Sky_HDR = Color(0, 1, 1, 1)
+Equator_HDR = Color(0.5, 0.5, 0.5, 1)
+Ground_HDR = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_envclip"]
+script = ExtResource("8_envclip")
+clip_name = "Environment Clip"
+start = 2.0
+duration = 6.0
+blend_in = 0.5
+blend_out = 0.5
+enabled = true
+template = SubResource("Resource_envbeh")
+
+[sub_resource type="Resource" id="Resource_envtrack"]
+script = ExtResource("7_envtrack")
+track_name = "Environment"
+track_color = Color(0.4, 0.7, 0.9, 1)
+enabled = true
+muted = false
+bound_path = NodePath("")
+clips = Array[ExtResource("3_clip")]([SubResource("Resource_envclip")])
+
+[resource]
+script = ExtResource("1_asset")
+asset_name = "Test Timeline"
+fps = 60
+duration = 0.0
+tracks = Array[ExtResource("2_track")]([SubResource("Resource_fogtrack"), SubResource("Resource_envtrack")])
