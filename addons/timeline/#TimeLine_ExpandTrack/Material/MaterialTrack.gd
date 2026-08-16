@@ -12,7 +12,7 @@ func _init() -> void:
 
 
 func get_clip_class() -> Script:
-	return preload("res://#Template/[Scripts]/TimeLineExpand/Material/MaterialClip.gd")
+	return preload("res://addons/timeline/#TimeLine_ExpandTrack/Material/MaterialClip.gd")
 
 
 func has_mixer() -> bool:
@@ -20,7 +20,7 @@ func has_mixer() -> bool:
 
 
 func create_mixer() -> TimelineMixer:
-	return preload("res://#Template/[Scripts]/TimeLineExpand/Material/MaterialMixer.gd").new()
+	return preload("res://addons/timeline/#TimeLine_ExpandTrack/Material/MaterialMixer.gd").new()
 
 
 func get_display_name() -> String:

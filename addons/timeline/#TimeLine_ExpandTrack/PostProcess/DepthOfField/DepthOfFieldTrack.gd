@@ -10,7 +10,7 @@ func _init() -> void:
 
 ## Unity: [TrackClipType(typeof(DepthOfFieldClip))]
 func get_clip_class() -> Script:
-	return preload("res://#Template/[Scripts]/TimeLineExpand/PostProcess/DepthOfField/DepthOfFieldClip.gd")
+	return preload("res://addons/timeline/#TimeLine_ExpandTrack/PostProcess/DepthOfField/DepthOfFieldClip.gd")
 
 
 ## Unity: CreateTrackMixer -> ScriptPlayable<DepthOfFieldMixerBehaviour>
@@ -19,7 +19,7 @@ func has_mixer() -> bool:
 
 
 func create_mixer() -> TimelineMixer:
-	return preload("res://#Template/[Scripts]/TimeLineExpand/PostProcess/DepthOfField/DepthOfFieldMixer.gd").new()
+	return preload("res://addons/timeline/#TimeLine_ExpandTrack/PostProcess/DepthOfField/DepthOfFieldMixer.gd").new()
 
 
 func get_display_name() -> String:

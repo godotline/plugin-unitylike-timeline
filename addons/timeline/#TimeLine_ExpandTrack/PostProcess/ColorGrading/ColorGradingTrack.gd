@@ -10,7 +10,7 @@ func _init() -> void:
 
 ## Unity: [TrackClipType(typeof(ColorGradingClip))]
 func get_clip_class() -> Script:
-	return preload("res://#Template/[Scripts]/TimeLineExpand/PostProcess/ColorGrading/ColorGradingClip.gd")
+	return preload("res://addons/timeline/#TimeLine_ExpandTrack/PostProcess/ColorGrading/ColorGradingClip.gd")
 
 
 ## Unity: CreateTrackMixer -> ScriptPlayable<ColorGradingMixerBehaviour>
@@ -19,7 +19,7 @@ func has_mixer() -> bool:
 
 
 func create_mixer() -> TimelineMixer:
-	return preload("res://#Template/[Scripts]/TimeLineExpand/PostProcess/ColorGrading/ColorGradingMixer.gd").new()
+	return preload("res://addons/timeline/#TimeLine_ExpandTrack/PostProcess/ColorGrading/ColorGradingMixer.gd").new()
 
 
 func get_display_name() -> String:

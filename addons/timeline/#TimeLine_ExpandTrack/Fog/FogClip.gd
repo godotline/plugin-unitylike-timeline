@@ -3,7 +3,7 @@
 class_name FogClip
 extends TimelineClip
 
-const FogBehaviourScript: Script = preload("res://#Template/[Scripts]/TimeLineExpand/Fog/FogBehaviour.gd")
+const FogBehaviourScript: Script = preload("res://addons/timeline/#TimeLine_ExpandTrack/Fog/FogBehaviour.gd")
 
 
 ## Unity: public FogBehaviour template = new FogBehaviour(); ClipCaps.Blending is

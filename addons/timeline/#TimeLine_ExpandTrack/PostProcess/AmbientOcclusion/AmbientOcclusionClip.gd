@@ -4,7 +4,7 @@ class_name AmbientOcclusionClip
 extends TimelineClip
 
 ## Unity: public AmbientOcclusionBehaviour template = new(); ClipCaps.Blending.
-const AmbientOcclusionBehaviourScript: Script = preload("res://#Template/[Scripts]/TimeLineExpand/PostProcess/AmbientOcclusion/AmbientOcclusionBehaviour.gd")
+const AmbientOcclusionBehaviourScript: Script = preload("res://addons/timeline/#TimeLine_ExpandTrack/PostProcess/AmbientOcclusion/AmbientOcclusionBehaviour.gd")
 
 
 func _init() -> void:

@@ -4,7 +4,7 @@ class_name MotionBlurClip
 extends TimelineClip
 
 ## Unity: public MotionBlurBehaviour template = new(); ClipCaps.Blending.
-const MotionBlurBehaviourScript: Script = preload("res://#Template/[Scripts]/TimeLineExpand/PostProcess/MotionBlur/MotionBlurBehaviour.gd")
+const MotionBlurBehaviourScript: Script = preload("res://addons/timeline/#TimeLine_ExpandTrack/PostProcess/MotionBlur/MotionBlurBehaviour.gd")
 
 
 func _init() -> void:

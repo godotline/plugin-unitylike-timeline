@@ -10,7 +10,7 @@ func _init() -> void:
 
 ## Unity: [TrackClipType(typeof(EnvironmentClip))]
 func get_clip_class() -> Script:
-	return preload("res://#Template/[Scripts]/TimeLineExpand/Environment/EnvironmentClip.gd")
+	return preload("res://addons/timeline/#TimeLine_ExpandTrack/Environment/EnvironmentClip.gd")
 
 
 ## Unity: CreateTrackMixer -> ScriptPlayable<EnvironmentMixerBehaviour>
@@ -19,7 +19,7 @@ func has_mixer() -> bool:
 
 
 func create_mixer() -> TimelineMixer:
-	return preload("res://#Template/[Scripts]/TimeLineExpand/Environment/EnvironmentMixer.gd").new()
+	return preload("res://addons/timeline/#TimeLine_ExpandTrack/Environment/EnvironmentMixer.gd").new()
 
 
 func get_display_name() -> String:

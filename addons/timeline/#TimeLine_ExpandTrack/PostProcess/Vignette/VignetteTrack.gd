@@ -10,7 +10,7 @@ func _init() -> void:
 
 ## Unity: [TrackClipType(typeof(VignetteClip))]
 func get_clip_class() -> Script:
-	return preload("res://#Template/[Scripts]/TimeLineExpand/PostProcess/Vignette/VignetteClip.gd")
+	return preload("res://addons/timeline/#TimeLine_ExpandTrack/PostProcess/Vignette/VignetteClip.gd")
 
 
 ## Unity: CreateTrackMixer -> ScriptPlayable<VignetteMixerBehaviour>
@@ -19,7 +19,7 @@ func has_mixer() -> bool:
 
 
 func create_mixer() -> TimelineMixer:
-	return preload("res://#Template/[Scripts]/TimeLineExpand/PostProcess/Vignette/VignetteMixer.gd").new()
+	return preload("res://addons/timeline/#TimeLine_ExpandTrack/PostProcess/Vignette/VignetteMixer.gd").new()
 
 
 func get_display_name() -> String:

@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://addons/timeline/core/timeline_asset.gd" id="1_asset"]
 [ext_resource type="Script" path="res://addons/timeline/core/timeline_track.gd" id="2_track"]
 [ext_resource type="Script" path="res://addons/timeline/core/timeline_clip.gd" id="3_clip"]
-[ext_resource type="Script" path="res://#Template/[Scripts]/TimeLineExpand/Fog/FogTrack.gd" id="4_fogtrack"]
-[ext_resource type="Script" path="res://#Template/[Scripts]/TimeLineExpand/Fog/FogClip.gd" id="5_fogclip"]
-[ext_resource type="Script" path="res://#Template/[Scripts]/TimeLineExpand/Fog/FogBehaviour.gd" id="6_fogbeh"]
-[ext_resource type="Script" path="res://#Template/[Scripts]/TimeLineExpand/Environment/EnvironmentTrack.gd" id="7_envtrack"]
-[ext_resource type="Script" path="res://#Template/[Scripts]/TimeLineExpand/Environment/EnvironmentClip.gd" id="8_envclip"]
-[ext_resource type="Script" path="res://#Template/[Scripts]/TimeLineExpand/Environment/EnvironmentBehaviour.gd" id="9_envbeh"]
+[ext_resource type="Script" path="res://addons/timeline/#TimeLine_ExpandTrack/Fog/FogTrack.gd" id="4_fogtrack"]
+[ext_resource type="Script" path="res://addons/timeline/#TimeLine_ExpandTrack/Fog/FogClip.gd" id="5_fogclip"]
+[ext_resource type="Script" path="res://addons/timeline/#TimeLine_ExpandTrack/Fog/FogBehaviour.gd" id="6_fogbeh"]
+[ext_resource type="Script" path="res://addons/timeline/#TimeLine_ExpandTrack/Environment/EnvironmentTrack.gd" id="7_envtrack"]
+[ext_resource type="Script" path="res://addons/timeline/#TimeLine_ExpandTrack/Environment/EnvironmentClip.gd" id="8_envclip"]
+[ext_resource type="Script" path="res://addons/timeline/#TimeLine_ExpandTrack/Environment/EnvironmentBehaviour.gd" id="9_envbeh"]
 
 [sub_resource type="Resource" id="Resource_fogbeh"]
 script = ExtResource("6_fogbeh")

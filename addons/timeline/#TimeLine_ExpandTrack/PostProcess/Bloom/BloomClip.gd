@@ -4,7 +4,7 @@ class_name BloomClip
 extends TimelineClip
 
 ## Unity: public BloomBehaviour template = new(); ClipCaps.Blending.
-const BloomBehaviourScript: Script = preload("res://#Template/[Scripts]/TimeLineExpand/PostProcess/Bloom/BloomBehaviour.gd")
+const BloomBehaviourScript: Script = preload("res://addons/timeline/#TimeLine_ExpandTrack/PostProcess/Bloom/BloomBehaviour.gd")
 
 
 func _init() -> void:

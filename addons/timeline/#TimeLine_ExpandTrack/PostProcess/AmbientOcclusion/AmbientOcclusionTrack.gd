@@ -10,7 +10,7 @@ func _init() -> void:
 
 ## Unity: [TrackClipType(typeof(AmbientOcclusionClip))]
 func get_clip_class() -> Script:
-	return preload("res://#Template/[Scripts]/TimeLineExpand/PostProcess/AmbientOcclusion/AmbientOcclusionClip.gd")
+	return preload("res://addons/timeline/#TimeLine_ExpandTrack/PostProcess/AmbientOcclusion/AmbientOcclusionClip.gd")
 
 
 ## Unity: CreateTrackMixer -> ScriptPlayable<AmbientOcclusionMixerBehaviour>
@@ -19,7 +19,7 @@ func has_mixer() -> bool:
 
 
 func create_mixer() -> TimelineMixer:
-	return preload("res://#Template/[Scripts]/TimeLineExpand/PostProcess/AmbientOcclusion/AmbientOcclusionMixer.gd").new()
+	return preload("res://addons/timeline/#TimeLine_ExpandTrack/PostProcess/AmbientOcclusion/AmbientOcclusionMixer.gd").new()
 
 
 func get_display_name() -> String:

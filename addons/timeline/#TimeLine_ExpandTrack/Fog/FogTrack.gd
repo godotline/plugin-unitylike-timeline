@@ -10,7 +10,7 @@ func _init() -> void:
 
 ## Unity: [TrackClipType(typeof(FogClip))]
 func get_clip_class() -> Script:
-	return preload("res://#Template/[Scripts]/TimeLineExpand/Fog/FogClip.gd")
+	return preload("res://addons/timeline/#TimeLine_ExpandTrack/Fog/FogClip.gd")
 
 
 ## Unity: CreateTrackMixer -> ScriptPlayable<FogMixerBehaviour>
@@ -19,7 +19,7 @@ func has_mixer() -> bool:
 
 
 func create_mixer() -> TimelineMixer:
-	return preload("res://#Template/[Scripts]/TimeLineExpand/Fog/FogMixer.gd").new()
+	return preload("res://addons/timeline/#TimeLine_ExpandTrack/Fog/FogMixer.gd").new()
 
 
 func get_display_name() -> String:
