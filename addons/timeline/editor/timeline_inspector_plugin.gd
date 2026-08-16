@@ -24,8 +24,6 @@ func _can_handle(obj: Object) -> bool:
 func _parse_property(obj: Object, type: int, name: String, hint_type: int, hint_string: String, usage_flags: int, wide: bool) -> bool:
 	if obj is TimelineClip:
 		return name not in _CLIP_SHOWN_PROPS
-	if obj is TimelineTrack:
-		return true  # 隐藏所有属性，只保留 _parse_begin 添加的按钮
 	return false
 
 
