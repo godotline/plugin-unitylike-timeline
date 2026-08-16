@@ -1894,9 +1894,18 @@ func _finish_recording() -> void:
 	_refresh()
 
 
+## 当 Director 首次被找到时，强制刷新 UI。
+func _on_director_found() -> void:
+	if _director.timeline != null:
+		_asset = _director.timeline
+		_refresh()
+
+
 func _process(_delta: float) -> void:
 	if _director == null or not is_instance_valid(_director):
 		_director = _find_director()
+		if _director != null:
+			_on_director_found()
 	if _director == null:
 		var visibility_changed: bool = not _hint_label.visible or not _add_director_button.visible
 		_hint_label.visible = true
