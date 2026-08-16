@@ -14,7 +14,7 @@ const TimelineSignalAssetClass := preload("res://addons/timeline/core/timeline_s
 
 
 ## Clip 只显示 template（Behaviour），其余去 Inspector 编辑。
-const _CLIP_SHOWN_PROPS: Array[StringName] = [&"template"]
+const _CLIP_SHOWN_PROPS: Array[String] = ["template"]
 
 
 func _can_handle(obj: Object) -> bool:
