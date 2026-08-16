@@ -236,6 +236,7 @@ func _build_content() -> void:
 	_ruler_row.custom_minimum_size = Vector2(0, _RULER_HEIGHT)
 	var track_header: HBoxContainer = HBoxContainer.new()
 	track_header.custom_minimum_size = Vector2(_LABEL_WIDTH, _RULER_HEIGHT)
+	track_header.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	var add_track_btn: Button = _make_icon_button("Add", "+", "添加轨道", _on_add_track)
 	track_header.add_child(add_track_btn)
 	var add_marker_btn: Button = _make_icon_button("Add", "+M", "添加 Marker", _on_add_marker)
@@ -263,6 +264,7 @@ func _build_content() -> void:
 	_body.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	_label_scroll = ScrollContainer.new()
 	_label_scroll.custom_minimum_size = Vector2(_LABEL_WIDTH, 0)
+	_label_scroll.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	_label_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	_label_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
 	# The fixed track header only scrolls vertically with the clip lanes.
