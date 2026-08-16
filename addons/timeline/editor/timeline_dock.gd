@@ -100,7 +100,7 @@ func _ready() -> void:
 	_build_bottom()
 	resized.connect(_layout_ui)
 	_layout_ui()
-	EditorInterface.get_selection().selection_changed.connect(_on_selection_changed)
+	EditorInterface.get_selection().selection_changed.connect(_on_editor_selection_changed)
 	set_process(true)
 
 
@@ -1903,7 +1903,7 @@ func _on_director_found() -> void:
 
 
 ## 监听编辑器节点选中变化，如果选中了 TimelineDirector 则切换到该 Director。
-func _on_selection_changed() -> void:
+func _on_editor_selection_changed() -> void:
 	var selected: Array[Node] = EditorInterface.get_selection().get_selected_nodes()
 	for node: Node in selected:
 		if node is TimelineDirector:
