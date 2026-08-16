@@ -13,11 +13,8 @@ const TimelineSignalEmitterClass := preload("res://addons/timeline/core/timeline
 const TimelineSignalAssetClass := preload("res://addons/timeline/core/timeline_signal_asset.gd")
 
 
-## Clip 专用属性，Inspector 中只显示这些。
-const _CLIP_SHOWN_PROPS: Array[StringName] = [
-	&"clip_name", &"start", &"duration", &"blend_in", &"blend_out",
-	&"enabled", &"speed", &"clip_in", &"template",
-]
+## Clip 只显示 template（Behaviour），其余去 Inspector 编辑。
+const _CLIP_SHOWN_PROPS: Array[StringName] = [&"template"]
 
 
 func _can_handle(obj: Object) -> bool:

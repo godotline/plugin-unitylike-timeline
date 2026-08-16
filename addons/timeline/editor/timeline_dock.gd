@@ -1361,9 +1361,8 @@ func _signal_emitter_filter(property_name: StringName, _info: Dictionary) -> boo
 
 func _update_selection_panel() -> void:
 	var has_clip: bool = _selected_clip != null or _selected_clips.size() > 0
-	var has_track: bool = _selected_track != null and not has_clip
 	var has_marker: bool = _selected_marker != null
-	var has_sel: bool = has_clip or has_track or has_marker
+	var has_sel: bool = has_clip or has_marker
 	_selection_panel.visible = has_sel
 	_multi_label.visible = _selected_clips.size() > 1
 	if _multi_label.visible:
