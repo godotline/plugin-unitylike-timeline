@@ -307,6 +307,12 @@ func _layout_ui() -> void:
 	var ruler_height: float = maxf(_RULER_HEIGHT, _ruler_row.get_combined_minimum_size().y)
 	_place_top(_toolbar, 0.0, toolbar_height)
 	_place_top(_ruler_row, toolbar_height, ruler_height)
+	# 同步标签列宽度，确保 ruler 时间刻度与 clip 区域对齐
+	var label_width: float = maxf(_LABEL_WIDTH, _label_scroll.get_combined_minimum_size().x)
+	_label_scroll.custom_minimum_size = Vector2(label_width, 0)
+	var track_header: HBoxContainer = _ruler_row.get_child(0) as HBoxContainer
+	if track_header != null:
+		track_header.custom_minimum_size = Vector2(label_width, _RULER_HEIGHT)
 	var body_top: float = toolbar_height + ruler_height
 	var bottom_height: float = 0.0
 	if _selection_panel != null and _selection_panel.visible:
@@ -1619,6 +1625,7 @@ func _refresh() -> void:
 		_play_range_end_spin.set_block_signals(false)
 	_time_spin.step = 1.0 / float(_asset.fps)
 	_apply_selection_visuals()
+	_layout_ui()
 
 
 func _build_track_rows(track: TimelineTrack, depth: int, y: float) -> float:
