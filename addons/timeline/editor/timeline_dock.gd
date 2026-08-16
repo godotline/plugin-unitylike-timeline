@@ -1394,12 +1394,9 @@ func _update_selection_panel() -> void:
 		_template_title.visible = false
 		_curve_title.visible = false
 		_curve_editor.clear()
-	_track_title.visible = has_track
-	_track_editor.visible = has_track
-	if has_track:
-		_track_editor.setup(_selected_track, Callable(self, "_track_filter"))
-	else:
-		_track_editor.clear()
+	_track_title.visible = false
+	_track_editor.visible = false
+	_track_editor.clear()
 	_marker_title.visible = has_marker
 	_marker_name_row.visible = has_marker
 	_marker_time_row.visible = has_marker

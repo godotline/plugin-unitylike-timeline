@@ -13,8 +13,21 @@ const TimelineSignalEmitterClass := preload("res://addons/timeline/core/timeline
 const TimelineSignalAssetClass := preload("res://addons/timeline/core/timeline_signal_asset.gd")
 
 
+## Clip 专用属性，Inspector 中只显示这些。
+const _CLIP_SHOWN_PROPS: Array[StringName] = [
+	&"clip_name", &"start", &"duration", &"blend_in", &"blend_out",
+	&"enabled", &"speed", &"clip_in", &"template",
+]
+
+
 func _can_handle(obj: Object) -> bool:
 	return obj is TimelineAsset or obj is TimelineTrack or obj is TimelineClip
+
+
+func _parse_property(obj: Object, type: int, name: String, hint_type: int, hint_string: String, usage_flags: int, wide: bool) -> bool:
+	if obj is TimelineClip:
+		return name not in _CLIP_SHOWN_PROPS
+	return false
 
 
 func _parse_begin(obj: Object) -> void:
