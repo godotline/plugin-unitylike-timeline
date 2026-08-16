@@ -602,6 +602,7 @@ func _on_track_selected(track: TimelineTrack) -> void:
 	_selected_clip = null
 	_selected_clips.clear()
 	_selected_track = track
+	EditorInterface.edit_resource(track)
 	_update_selection_panel()
 	_apply_selection_visuals()
 
@@ -618,6 +619,7 @@ func _on_clip_selected(clip: TimelineClip, track: TimelineTrack, additive: bool)
 	else:
 		_selected_clips = [clip]
 		_selected_clip = clip
+		EditorInterface.edit_resource(clip)
 	_update_selection_panel()
 	_apply_selection_visuals()
 
@@ -626,6 +628,7 @@ func _on_track_row_clip_selected(clip: TimelineClip, track: TimelineTrack) -> vo
 	_selected_marker = null
 	_selected_track = track
 	_selected_clip = clip
+	EditorInterface.edit_resource(clip)
 
 
 func _on_selection_changed(clips: Array[TimelineClip], track: TimelineTrack) -> void:
@@ -633,6 +636,10 @@ func _on_selection_changed(clips: Array[TimelineClip], track: TimelineTrack) -> 
 	_selected_clip = clips.back() as TimelineClip if not clips.is_empty() else null
 	_selected_track = track
 	_selected_marker = null
+	if _selected_clip != null:
+		EditorInterface.edit_resource(_selected_clip)
+	elif _selected_track != null:
+		EditorInterface.edit_resource(_selected_track)
 	_update_selection_panel()
 	_apply_selection_visuals()
 
