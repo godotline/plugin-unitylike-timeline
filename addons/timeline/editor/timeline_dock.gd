@@ -621,7 +621,7 @@ func _on_clip_selected(clip: TimelineClip, track: TimelineTrack, additive: bool)
 	else:
 		_selected_clips = [clip]
 		_selected_clip = clip
-		EditorInterface.edit_resource(clip)
+		_edit_clip_behaviour(clip)
 	_update_selection_panel()
 	_apply_selection_visuals()
 
@@ -630,7 +630,7 @@ func _on_track_row_clip_selected(clip: TimelineClip, track: TimelineTrack) -> vo
 	_selected_marker = null
 	_selected_track = track
 	_selected_clip = clip
-	EditorInterface.edit_resource(clip)
+	_edit_clip_behaviour(clip)
 
 
 func _on_selection_changed(clips: Array[TimelineClip], track: TimelineTrack) -> void:
@@ -639,7 +639,7 @@ func _on_selection_changed(clips: Array[TimelineClip], track: TimelineTrack) -> 
 	_selected_track = track
 	_selected_marker = null
 	if _selected_clip != null:
-		EditorInterface.edit_resource(_selected_clip)
+		_edit_clip_behaviour(_selected_clip)
 	elif _selected_track != null:
 		EditorInterface.edit_resource(_selected_track)
 	_update_selection_panel()
@@ -1909,6 +1909,14 @@ func _finish_recording() -> void:
 
 
 ## 当 Director 首次被找到时，强制刷新 UI。
+## 编辑 Clip 的 Behaviour（template），若为空则编辑 Clip 本身。
+func _edit_clip_behaviour(clip: TimelineClip) -> void:
+	if clip.template != null:
+		EditorInterface.edit_resource(clip.template)
+	else:
+		EditorInterface.edit_resource(clip)
+
+
 func _on_director_found() -> void:
 	if _director.timeline != null:
 		_asset = _director.timeline
