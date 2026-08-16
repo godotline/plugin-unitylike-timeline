@@ -1902,11 +1902,22 @@ func _on_director_found() -> void:
 		_refresh()
 
 
+## 切换到 TimelineDock 所在的 tab（如果有 TabContainer 父级）。
+func _activate_timeline_tab() -> void:
+	var parent := get_parent()
+	while parent != null:
+		if parent is TabContainer:
+			parent.current_tab = parent.get_tab_idx_from_control(self)
+			return
+		parent = parent.get_parent()
+
+
 ## 监听编辑器节点选中变化，如果选中了 TimelineDirector 则切换到该 Director。
 func _on_editor_selection_changed() -> void:
 	var selected: Array[Node] = EditorInterface.get_selection().get_selected_nodes()
 	for node: Node in selected:
 		if node is TimelineDirector:
+			_activate_timeline_tab()
 			if _director != node:
 				_director = node
 				_on_director_found()
