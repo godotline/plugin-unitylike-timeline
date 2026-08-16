@@ -101,6 +101,7 @@ func _ready() -> void:
 	resized.connect(_layout_ui)
 	_layout_ui()
 	EditorInterface.get_selection().selection_changed.connect(_on_editor_selection_changed)
+	EditorInterface.get_editor_undo_redo().version_changed.connect(_on_undo_redo_changed)
 	set_process(true)
 
 
@@ -1941,6 +1942,12 @@ func _on_editor_selection_changed() -> void:
 				_director = node
 				_on_director_found()
 			return
+
+
+## 监听 Undo/Redo 操作，刷新面板。
+func _on_undo_redo_changed() -> void:
+	if _director != null:
+		_on_director_found()
 
 
 func _process(_delta: float) -> void:
