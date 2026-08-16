@@ -132,7 +132,7 @@ func _refresh_selection_state() -> void:
 			child.call("set_selected", _selected_clips.has((child as Control).get("_clip")))
 
 
-func _on_view_selected(clip: TimelineClip, track: TimelineTrack, add_to_selection: bool, range_select: bool) -> void:
+func _on_view_selected(clip: TimelineClip, add_to_selection: bool, range_select: bool, track: TimelineTrack) -> void:
 	if add_to_selection:
 		if _selected_clips.has(clip):
 			_selected_clips.erase(clip)
